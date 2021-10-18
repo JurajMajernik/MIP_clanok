@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{url} % príkaz \url na formátovanie URL
 \usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
+\usepackage{wrapfig}
 
 \usepackage{cite}
 %\usepackage{times}
@@ -52,9 +53,10 @@ Záverečné poznámky prináša časť~\ref{zaver}.
 
 Z obr.~\ref{f:rozhod} je všetko jasné. 
 
-\begin{figure*}[tbh]
+\begin{figure*}[h]
 \centering
-\includegraphics[scale=1.0]{first.pdf}
+\includegraphics[scale=0.5]{first.pdf}
+%why not?
 Aj text môže byť prezentovaný ako obrázok. Stane sa z neho označný plávajúci objekt. Po vytvorení diagramu zrušte znak \texttt{\%} pred príkazom \verb|\includegraphics| označte tento riadok ako komentár (tiež pomocou znaku \texttt{\%}).
 \caption{Rozhodujúci argument.}
 \label{f:rozhod}
@@ -147,6 +149,46 @@ Lumis lupups inupusxa
 %		\caption{obr.02}
 %	\end{subfigure}
 %\end{figure}
+
+
+\begin{wrapfigure}{r}{0.75\textwidth}
+\centering
+\includegraphics[width=0.75\textwidth]{first.png}
+\end{wrapfigure}
+\begin{wrapfigure}{l}{0.75\textwidth}
+\centering
+\includegraphics[width=0.75\textwidth]{first.png}
+\end{wrapfigure}
+
+\newcounter{polozky}
+\newcommand{\Polozka}{
+\refstepcounter{polozky}
+}
+
+
+\thepolozky
+
+Pridám 4 polozky
+\Polozka{a}
+\Polozka{a}
+\Polozka{a}
+\Polozka{a}
+
+\thepolozky
+
+nastavím počítadlo na 7
+
+\setcounter {polozky}{7}
+
+\thepolozky
+
+Pridám 4 polozky
+\Polozka{a}
+\Polozka{a}
+\Polozka{a}
+\Polozka{a}
+
+\thepolozky
 
 \section{Záver} \label{zaver} % prípadne iný variant názvu
 
